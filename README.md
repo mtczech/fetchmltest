@@ -8,9 +8,9 @@ pip install matplotlib
 
 To run the program, use this command:
 
-python fetchmltest.py <DECAY_FACTOR> <THRESHOLD>
+python fetchmltest.py "DECAY_FACTOR" "THRESHOLD"
 
-where <DECAY_FACTOR> and <THRESHOLD> will be explained later.
+where "DECAY_FACTOR" and "THRESHOLD" will be explained later.
 
 Why not Docker?
 
