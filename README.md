@@ -39,7 +39,9 @@ between the day the next change is being calculated for and the day of the chang
 being put in. For example, take this example:
 
 Day 0: 900,000 receipts
+
 Day 1: 800,000 receipts (down 100,000)
+
 Day 2: 850,000 receipts (up 50,000)
 
 If the decay factor is 0.9, the expected change from day 2 to day 3 is:
