@@ -12,6 +12,10 @@ Download the git repository with this command:
 
 git clone https://github.com/mtczech/fetchmltest.git
 
+Navigate to the root of the new directory with this command:
+
+cd fetchmltest
+
 To run the program, use this command:
 
 python fetchmltest.py "DECAY_FACTOR" "THRESHOLD"
@@ -53,7 +57,7 @@ This algorithm is better for short-term predictions than for long-term ones, sin
 if you go far enough into the future with your predictions, you will only be making 
 predictions based on changes that didn't actually happen. Because of this, the change/day
 will inevitably flatten out, since the process of calculating the values will take in the
-same values over and over again.
+same values over and over again. In addition, seasonal trends are not taken into account.
 
 Assumptions being made:
 
