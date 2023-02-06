@@ -6,6 +6,12 @@ Install matplotlib on the machine being used with this command:
 
 pip install matplotlib
 
+Navigate to the repository you want this program to be placed in.
+
+Download the git repository with this command:
+
+git clone https://github.com/mtczech/fetchmltest.git
+
 To run the program, use this command:
 
 python fetchmltest.py "DECAY_FACTOR" "THRESHOLD"
@@ -24,7 +30,7 @@ if one day 800,000 receipts were scanned and the next day 850,000 receipts were 
 change from the first to the second day would be 50,000 receipts/day. However, since change is erratic
 from one day to the next, some sort of smoothing is required. To solve this problem, I semi-averaged 
 all of the changes from one day to the next. This is where the <DECAY_FACTOR> parameter comes in. 
-The daily change is weighted like this: (change/day)*(<DECAY_FACTOR>**d), where d is the number of days
+The daily change is weighted like this: (change/day)*(<DECAY_FACTOR>^d), where d is the number of days
 between the day the next change is being calculated for and the day of the change that is currently
 being put in. For example, take this example:
 
@@ -33,12 +39,12 @@ Day 1: 800,000 receipts (down 100,000)
 Day 2: 850,000 receipts (up 50,000)
 
 If the decay factor is 0.9, the expected change from day 2 to day 3 is:
-(50000*(0.9**0)) + (-100000*(0.9**1)), or 50000 - 90000, or a drop of 40,000 receipts.
+(50000*(0.9^0)) + (-100000*(0.9^1)), or 50000 - 90000, or a drop of 40,000 receipts.
 
 This makes sense because the general trend is downward, but how far back do you want to go?
-<DECAY_FACTOR> and the other parameter, <THRESHOLD> control this. The algorithm does not keep
+"DECAY_FACTOR" and the other parameter, "THRESHOLD" control this. The algorithm does not keep
 calculating values forever-it stops once the time multiplier is below a certain threshold.
-For example, if <THRESHOLD> was greater than 1, only the first value would be calculated
+For example, if "THRESHOLD" was greater than 1, only the first value would be calculated
 since the multiplier would always be 1 for the first iteration.
 
 Notes on the algorithm/ways to improve:
@@ -51,7 +57,7 @@ same values over and over again.
 
 Assumptions being made:
 
-* The parameters <DECAY_FACTOR> and <THRESHOLD> are both floating point values.
+* The parameters "DECAY_FACTOR" and "THRESHOLD" are both floating point values.
 
 * The data file being put in is named "data_daily.csv".
 
